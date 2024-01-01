@@ -1,3 +1,16 @@
+local servers = {
+  "tailwindcss",
+  "tsserver",
+  "gopls",
+  "pyright",
+  "emmet_ls",
+  "html",
+  "lua_ls",
+  "yamlls",
+  "denols",
+  "dockerls",
+}
+
 return {
   {
     "williamboman/mason.nvim",
@@ -12,6 +25,11 @@ return {
     opts = {
       auto_install = true,
     },
+    config = function()
+      require("mason-lspconfig").setup({
+        ensure_installed = servers
+      })
+    end
   },
   {
     "neovim/nvim-lspconfig",
@@ -21,18 +39,19 @@ return {
 
       local lspconfig = require("lspconfig")
 
-      local servers = {
-        "tailwindcss",
-        "tsserver",
-        "gopls",
-        "pyright",
-        "emmet_ls",
-        "html",
-        "lua_ls",
-        "yamlls",
-        "denols",
-        "dockerls",
-      }
+      -- local servers = {
+      --   "tailwindcss",
+      --   "tsserver",
+      --   "gopls",
+      --   "pyright",
+      --   "emmet_ls",
+      --   "html",
+      --   "lua_ls",
+      --   "yamlls",
+      --   "denols",
+      --   "dockerls",
+      -- }
+
       for _, lsp in ipairs(servers) do
         lspconfig[lsp].setup({
           capabilities = capabilities,
