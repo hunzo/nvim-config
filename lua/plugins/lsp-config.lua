@@ -9,6 +9,8 @@ local servers = {
   "yamlls",
   "denols",
   "dockerls",
+  "bashls",
+  "jsonls",
 }
 
 return {
@@ -39,18 +41,6 @@ return {
 
       local lspconfig = require("lspconfig")
 
-      -- local servers = {
-      --   "tailwindcss",
-      --   "tsserver",
-      --   "gopls",
-      --   "pyright",
-      --   "emmet_ls",
-      --   "html",
-      --   "lua_ls",
-      --   "yamlls",
-      --   "denols",
-      --   "dockerls",
-      -- }
 
       for _, lsp in ipairs(servers) do
         lspconfig[lsp].setup({
