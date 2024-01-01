@@ -10,6 +10,13 @@ return {
 			require("luasnip.loaders.from_vscode").lazy_load()
 		end,
 	},
+	-- cmp sources plugins
+	{
+		"hrsh7th/cmp-nvim-lua",
+		"hrsh7th/cmp-buffer",
+		"hrsh7th/cmp-path",
+	},
+	-- nvim-lsp config
 	{
 		"hrsh7th/cmp-nvim-lsp",
 		lazy = false,
@@ -41,6 +48,8 @@ return {
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
 					{ name = "buffer" },
+					{ name = "nvim_lua" },
+					{ name = "path" },
 					-- }, {
 					-- { name = "buffer" },
 				}),
