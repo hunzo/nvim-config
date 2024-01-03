@@ -20,15 +20,6 @@ return {
       end
     end
 
-    local linter = {
-      "djlint",
-      "prettier",
-      "stylua",
-      "gofumpt",
-      "golines",
-      "goimports_reviser",
-    }
-
     null_ls.setup({
       sources = {
         null_ls.builtins.formatting.stylua,
