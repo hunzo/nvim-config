@@ -38,7 +38,7 @@ keymap.set("n", "<C-w><down>", "<C-w>-", opts)
 
 -- diagnostics
 keymap.set("n", "<C-d>", function()
-  vim.diagnostic.goto_next()
+	vim.diagnostic.goto_next()
 end, opts)
 
 -- lsp
@@ -46,3 +46,8 @@ keymap.set("n", "K", vim.lsp.buf.hover, {})
 keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
 keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
 keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
+
+-- comment
+-- keymap.set("n", "<leader>/", function()
+-- 	require("Coment.api").toggle.linewise.current()
+-- end)
