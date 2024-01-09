@@ -6,6 +6,7 @@ return {
 		opts = {
 			-- indent = { highlight = { "LineNr" }, char = "│" },
 			indent = { highlight = { "LineNr" }, char = "|" },
+			-- indent = { char = "|" },
 			scope = { enabled = false },
 		},
 	},
