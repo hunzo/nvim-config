@@ -32,6 +32,11 @@ keymap.set("n", "sv", ":vsplit<Return>", opts)
 
 -- resize windows
 keymap.set("n", "<C-w><left>", "<C-w><", opts)
-keymap.set("n", "<C-w><rigth>", "<C-w>>", opts)
+keymap.set("n", "<C-w><right>", "<C-w>>", opts)
 keymap.set("n", "<C-w><up>", "<C-w>+", opts)
 keymap.set("n", "<C-w><down>", "<C-w>-", opts)
+
+-- diagnostics
+keymap.set("n", "<C-j>", function()
+	vim.diagnostic.goto_next()
+end, opts)
