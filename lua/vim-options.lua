@@ -21,3 +21,17 @@ vim.wo.number = true
 keymap.set("n", "te", ":tabedit", opts)
 keymap.set("n", "<tab>", ":tabnext<Return>", opts)
 keymap.set("n", "<S-tab>", ":tabprev<Return>", opts)
+
+-- increment/decrement
+keymap.set("n", "+", "<C-a>")
+keymap.set("n", "-", "<C-x>")
+
+-- split window
+keymap.set("n", "ss", ":split<Return>", opts)
+keymap.set("n", "sv", ":vsplit<Return>", opts)
+
+-- resize windows
+keymap.set("n", "<C-w><left>", "<C-w><", opts)
+keymap.set("n", "<C-w><rigth>", "<C-w>>", opts)
+keymap.set("n", "<C-w><up>", "<C-w>+", opts)
+keymap.set("n", "<C-w><down>", "<C-w>-", opts)
