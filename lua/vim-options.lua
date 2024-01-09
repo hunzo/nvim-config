@@ -15,10 +15,16 @@ local opts = { noremap = true, silent = true }
 -- keymap.set("n", "<c-l>", ":wincmd l<CR>", opts)
 
 -- Move window
--- keymap.set("n", "sh", "C-w>h")
--- keymap.set("n", "sk", "C-w>k")
--- keymap.set("n", "sj", "C-w>j")
--- keymap.set("n", "sl", "C-w>l")
+-- keymap.set("n", "sh", "<C-w>h")
+-- keymap.set("n", "sk", "<C-w>k")
+-- keymap.set("n", "sj", "<C-w>j")
+-- keymap.set("n", "sl", "<C-w>l")
+
+-- Move
+keymap.set("n", "<c-k>", "<C-w>k", opts)
+keymap.set("n", "<c-j>", "<C-w>j", opts)
+keymap.set("n", "<c-h>", "<C-w>h", opts)
+keymap.set("n", "<c-l>", "<C-w>l", opts)
 
 keymap.set("n", "<leader>h", ":nohlsearch<CR>")
 vim.wo.number = true
@@ -43,7 +49,7 @@ keymap.set("n", "<C-w><up>", "<C-w>+", opts)
 keymap.set("n", "<C-w><down>", "<C-w>-", opts)
 
 -- diagnostics
-keymap.set("n", "<C-j>", function()
+keymap.set("n", "<C-d>", function()
 	vim.diagnostic.goto_next()
 end, opts)
 
