@@ -58,18 +58,32 @@ return {
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+			local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
+			local on_attach = function(client, bufr)
+				if client.supports_method("textDocument/formatting") then
+					vim.api.nvim_clear_autocmds({
+						group = augroup,
+						buffer = bufr,
+					})
+					vim.api.nvim_create_autocmd("BufWritePre", {
+						group = augroup,
+						buffer = bufr,
+						callback = function()
+							vim.lsp.buf.format({ bufr = bufr })
+						end,
+					})
+				end
+			end
+
 			local lspconfig = require("lspconfig")
 
 			for _, lsp in ipairs(servers) do
 				lspconfig[lsp].setup({
 					capabilities = capabilities,
+					on_attach = on_attach,
 				})
 			end
-
-			-- vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-			-- vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
-			-- vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
-			-- vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
 		end,
 	},
 	{
